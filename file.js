@@ -1,18 +1,14 @@
-let string = ''
-let buttons = document.querySelectorAll('.button')
-let input = document.querySelector('.input')
-Array.from(buttons).forEach(button=>{
-    button.addEventListener('click',(e)=>{
-        if(e.target.innerHTML == '='){
-            string = eval(string)
-            input.value = string
-        }else if(e.target.innerHTML == 'C'){
-            string = ''
-            input.value = string
-        }else{
-            console.log(e.target)
-            string += e.target.innerHTML
-            input.value = string
+const input = document.getElementById('input')
+const buttons = document.querySelectorAll('.btn')
+Array.from(buttons).forEach(element=>{
+    element.addEventListener('click',(e)=>{
+        if(e.target.innerText === '='){
+            input.value = eval(input.value)
+        }else if(e.target.innerText === 'C'){
+            input.value = ''
+        }
+        else{
+            input.value += e.target.innerText
         }
     })
 })
